@@ -12,6 +12,9 @@ destructuring assignment;
 //각 배열의 데이터를 구조분해 할당을 이용해서 원하는 변수명으로 한번에 할당
 const fruit = ['apple', 'pear', 'melon'];
 const [a,b,c] = fruit;
+console.log(a);
+console.log(b);
+console.log(c);
 
 const student = {
 	name: '홍길동',
@@ -24,7 +27,7 @@ const {name, age, isFemale} = student;
 
 /*
 전개 연산자 (Spread Operator)
-- 참조형 자료를 완전복사 (deep copy)
+- 참조형 자료(배열, 객체)를 완전복사 (deep copy)
 
 변수에 배열이나 객체같은 참조형 자료를 할당하면
 해당 변수에는 실제 값이 할당되는 것이 아닌 해당값이 위치해있는 주소값이 참조
