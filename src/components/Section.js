@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Article from './Article';
 
 //hook: 컴포넌트 안쪽에 다양한 기능을 도와주는 모듈
@@ -20,6 +20,49 @@ const student = {
 }
 const {name, age, isFemale} = student;
 
+*/
+
+/*
+전개 연산자 (Spread Operator)
+- 참조형 자료를 완전복사 (deep copy)
+
+변수에 배열이나 객체같은 참조형 자료를 할당하면
+해당 변수에는 실제 값이 할당되는 것이 아닌 해당값이 위치해있는 주소값이 참조
+//해당 배열의 값이 변수에 할당되는게 아닌 서로 다른 참조 주소가 할당되므로 
+//아래 두값을 비교하면 다르다는 결과값이 출력
+const arr1 = ['red', 'green', 'blue'];
+const arr2 = ['red', 'green', 'blue'];
+console.log(arr1 === arr2); //false
+
+//원시형 자료는 실제 해당값이 변수에 할당되므로 같다고 출력
+const a = 'apple';
+const b = 'apple';
+console.log(a === b); //true
+
+//배열을 생성하고
+let fruit = ['apple', 'mango', 'melon'];
+//해당 배열을 새로운 배열로 옮겨담음 (복사)
+let newfruit = fruit;
+//복사된 배열의 첫번째값을 변경
+newfruit[0] = 'orange';
+//복사된 배열값 출력 (변경된 값으로 출력)
+console.log(newfruit);
+//변경하지 않은 원래 배열값도 같이 변경됨
+console.log(fruit); //orange, mango, melon
+
+//불변성 (immutable)
+//참조형 자료를 복사할때는 원본 데이터와 비교할수 있도록 무조건 deep copy (원본파일 변경되는것을 방지하기 위함)
+*/
+
+/*
+let fruit = ['apple', 'mango', 'melon'];
+//전개연산자로 기존 참조값을 deep copy한 다음에 
+let newfruit = [...fruit];
+//완전복사된 값을 변경하면
+newfruit[0] = 'orange';
+console.log(newfruit);
+//원본값에는 영향을 미치지 않음
+console.log(fruit); //apple, mango, melon (원본 그대로 유지됨)
 */
 
 /*
