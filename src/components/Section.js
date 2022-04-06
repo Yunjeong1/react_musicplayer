@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Article from './Article';
 
 //hook: 컴포넌트 안쪽에 다양한 기능을 도와주는 모듈
@@ -83,9 +83,26 @@ function Section() {
 		'Vespers',
 	];
 
+	//상태관리할 초기값을 useState함수에 인수로 전달하면
+	//인수로 전달된 초기값을 state로 관리
+	//배열을 리턴 - [state, state를 변경하는 함수]
+	const [item, setItem] = useState(arr);
+
 	return (
 		<section>
-			{arr.map((data, idx) => {
+			<button
+				onClick={() => {
+					//불변성을 유지하기 위해 기존 데이터를 deep copy한 다음에 데이터 수정
+					let newItem = [...item];
+					newItem[0] = 'Calm';
+					//수정된 데이터는 무조건 state변경함수로만 변경 가능
+					//해당 함수로 변경해야 변경된 부분이 재 렌더링된 후, 화면에 반영됨
+					setItem(newItem);
+				}}>
+				이미지 변경
+			</button>
+			{/* item이라는 state에 옮겨담은 값으로 컴포넌트 반복 출력 */}
+			{item.map((data, idx) => {
 				//부모요소에서 자식 컴포넌트로 prop(이라는 data를)을 통해서 특정 데이터 전달 가능
 				return <Article key={idx} data={data} index={idx} />;
 			})}
